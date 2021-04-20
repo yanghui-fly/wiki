@@ -1,8 +1,11 @@
 package com.jiawa.wiki.controller;
 
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
 
 //@Controller
 @RestController
@@ -11,9 +14,15 @@ public class TextController {
 //    @PutMapping
 //    @DeleteMapping
 //    @RequestMapping(value = "/hello",method=RequestMethod.GET)
-    @RequestMapping("/hello")
+    @GetMapping("/hello")
     public String hello(){
 
-        return "helloworld";
+        return "Hello World";
+    }
+
+    @PostMapping("/hello/post")
+    public String helloPost(Map<String,String> map){
+
+        return "Hello World"+map.get("name");
     }
 }
