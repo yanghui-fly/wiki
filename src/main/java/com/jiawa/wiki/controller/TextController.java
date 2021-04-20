@@ -1,6 +1,7 @@
 package com.jiawa.wiki.controller;
 
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,11 @@ import java.util.Map;
 //@Controller
 @RestController
 public class TextController {
+
+    @Value("${test.hello:TEST}")
+    private String testHello;
+
+
 //    @PostMapping
 //    @PutMapping
 //    @DeleteMapping
@@ -17,7 +23,7 @@ public class TextController {
     @GetMapping("/hello")
     public String hello(){
 
-        return "Hello World";
+        return "Hello World"+testHello;
     }
 
     @PostMapping("/hello/post")
